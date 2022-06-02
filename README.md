@@ -1,6 +1,11 @@
 # NCSC
 Reproducible codes of Superpixel Contracted Neighborhood Contrastive Subspace Clustering Network for Hyperspectral Image
 
+## Requirements
+PyTorch >= 1.7
+scikit-learn
+
+
 ## Citing 
     @ARTICLE{NCSC-TGRS-2022,
       author={Cai, Yaoming and Zhang, Zijia and Ghamisi, Pedram and  Ding, Yao and Liu, Xiaobo and Cai, Zhihua and Gloaguen, Richard}
