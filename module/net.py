@@ -30,48 +30,6 @@ class SelfExpressiveLayer(nn.Module):
         return latent_recon
 
 
-class SPixelGraphConv(nn.Module):
-    def __init__(self, device):
-        super(SPixelGraphConv, self).__init__()
-        self.device = device
-        self.appnp = APPNP(K=5, alpha=0.1, normalize=True)
-
-    def forward(self, x, adj):
-        if not isinstance(adj, torch.Tensor):
-            adj = torch.from_numpy(adj).float().to(self.device)
-        edge_index, _ = dense_to_sparse(adj)
-        return self.appnp(x, edge_index)
-
-
-class GraphAttention(nn.Module):
-
-    def __init__(self, in_dim):
-        super(GraphAttention, self).__init__()
-        self.lin_a = nn.Linear(in_dim, 128)
-        self.lin_b = nn.Linear(in_dim, 128)
-        self.non_lin = nn.ReLU()
-        self.appnp = APPNP(K=5, alpha=0.05, normalize=True)
-
-    def forward(self, x):
-        A = self.non_lin(torch.matmul(self.lin_a(x), self.lin_b(x).t()))
-        index, edge_attr = dense_to_sparse(A)
-        x_att = self.appnp(x, index, edge_attr)
-        return x_att
-
-
-class GraphLearningLayer(nn.Module):
-
-    def __init__(self, in_dim):
-        super(GraphLearningLayer, self).__init__()
-        self.lin_a = nn.Linear(in_dim, 128)
-        self.lin_b = nn.Linear(in_dim, 128)
-        self.non_lin = nn.Softmax(dim=1)
-
-    def forward(self, x):
-        A = self.non_lin(torch.matmul(self.lin_a(x), self.lin_b(x).t()))
-        return A
-
-
 class Net(nn.Module):
 
     def __init__(self, in_channel, patch_size, association_mat, init_affinity=None, device='gpu'):
