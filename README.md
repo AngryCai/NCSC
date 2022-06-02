@@ -2,7 +2,9 @@
 Reproducible codes of Superpixel Contracted Neighborhood Contrastive Subspace Clustering Network for Hyperspectral Image
 
 ## Requirements
-PyTorch
+PyTorch >= 1.7
+scikit-learn
+
 
 ## Citing 
     @ARTICLE{NCSC-TGRS-2022,
