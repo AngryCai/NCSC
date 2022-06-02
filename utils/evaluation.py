@@ -1,10 +1,8 @@
+from warnings import simplefilter
+simplefilter(action='ignore', category=FutureWarning)
 import numpy as np
 from sklearn import metrics
 from munkres import Munkres
-# ignore all future warnings
-from warnings import simplefilter
-simplefilter(action='ignore', category=FutureWarning)
-
 
 def evaluate(label, pred, is_HSI_score=False):
     # if not is_labeled_pixel:

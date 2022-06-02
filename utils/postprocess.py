@@ -2,10 +2,6 @@ import numpy as np
 from scipy.sparse.linalg import svds
 from sklearn import cluster
 from sklearn.preprocessing import normalize
-import matplotlib.pyplot as plt
-from matplotlib import cm
-import matplotlib as mpl
-import networkx as nx
 
 
 def spixel_to_pixel_labels(sp_level_label, association_mat):

@@ -1,11 +1,12 @@
-import torch
-from torch.utils.data import Dataset, DataLoader
-from Toolbox.Preprocessing import Processor
-from sklearn.preprocessing import scale, minmax_scale, normalize
-from sklearn.decomposition import PCA
 import numpy as np
-from utils.superpixel_utils import HSI_to_superpixels, create_association_mat, create_spixel_graph, show_superpixel
+import torch
 from scipy.io import loadmat
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import scale
+from torch.utils.data import Dataset
+
+from Toolbox.Preprocessing import Processor
+from utils.superpixel_utils import HSI_to_superpixels, create_association_mat, create_spixel_graph
 
 
 class HSI_Data(Dataset):
