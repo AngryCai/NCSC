@@ -1,0 +1,28 @@
+# general
+seed: 42 #42
+workers: 0
+dataset_root: "D:\\Python\\HSI_Files\\"
+
+# train options
+image_size: 7
+in_channel: 10
+start_epoch: 0
+num_superpixel: 200
+epochs: 200
+dataset: "HSI-SaN"  # "HSI-Hou" "HSI-SaN"  "HSI-PaC" #
+
+# model options
+# feature_dim: 128
+model_path:  "save/HSI-SaN"  # "save/HSI-SaN"; "save/HSI-SaA" "save/HSI-PaC"
+sp_path: 'ERS-HSI/seg_labels/SaN-171' # # InP-261; SaN-171; InP-2010-277; TrT-227
+reload: False
+
+# loss options
+learning_rate: 0.0005 #0.00002
+
+n_neighbor: 10
+temperature: 0.5
+weight_decay: 0.0005
+regularizer: 'NC'  # # 'NC', 'L1', 'L2', 'None', 'Graph'
+loss_tradeoff: 100     # # 'Graph': 0.0001;  'L1/L2': 0.01
+sparse_tradeoff: 0.001      # # 'Graph': 1;     'L1/l2': 1
